@@ -1,0 +1,128 @@
+########***********DATA DICTIONARY ***********########
+
+/---------------------------------------------------------------------------------/
+ /-------------------------*****Immigation data******----------------------------/
+/---------------------------------------------------------------------------------/
+Variable	Description
+
+admission_num: decimal(15,0) (nullable = true)	Admission Number
+age: integer (nullable = true)	Age of Respondent in Years 
+airline: string (nullable = true)	Airline used to arrive in U.S.
+arrival_flag: string (nullable = true)	Arrival Flag (entdepa) - admitted or paroled into the U.S.
+arrival_state_code: string (nullable = true)	State of arrival in the US (i94addr)
+birth_year: integer (nullable = true)	4 digit year of birth (i94bir)
+cicid: integer (nullable = true)	Unique record ID
+count: double (nullable = true)	Unique record ID
+country_of_residence: integer (nullable = true)	3 digit code for immigrant country of residence
+departure_flag: string (nullable = true)	Departure Flag (entdepd)- Departed, lost I-94 or is deceased
+dt_add_tofile: date (nullable = true)	Date added to I-94 Files (dtadfile) (yyyy-mm-dd)
+dt_arrival: date (nullable = true)	Arrival Date in the USA (yyyy-mm-dd)
+dt_departure: date (nullable = true)	Departure Date from the USA (yyyy-mm-dd)
+dt_stay_until: date (nullable = true)	Date to which admitted to U.S. (dtaddto- allowed to stay until)  (yyyy-mm-dd) 
+entry_month: integer (nullable = true)	Numeric month of entry of the immigrant
+entry_year: integer (nullable = true)	4- digit entry year of the immigrant
+flight_no: string (nullable = true)	Flight number of Airline used to arrive in U.S.
+gender: string (nullable = true)	immigrant sex
+i94_mode: integer (nullable = true)	Mode of transportation (1 = Air; 2 = Sea; 3 = Land; 9 = Not reported)
+country_of_birth: integer (nullable = true)	3 digit code for immigrant country of birth (i94cit)
+i94port_code: string (nullable = true)	Port of admission code (i94port)
+insnum: string (nullable = true)	INS number issued to the immigrant
+match_flag: string (nullable = true)	Match flag (matflag) - Match of arrival and departure records
+occup: string (nullable = true)	Occupation that will be performed in U.S
+update_flag: string (nullable = true)	Update Flag (entdepu) - Either apprehended, overstayed, adjusted to perm residence
+visa_cat_code: integer (nullable = true)	Visa codes collapsed into three categories (i94visa)
+visa_issued_state: integer (nullable = true)	Department of State where where Visa was issued (visapost)
+visa_type: string (nullable = true)	Class of admission legally admitting the non-immigrant to temporarily stay in U.S.
+
+
+/---------------------------------------------------------------------------------/
+/-------------------------****Demographics data*****----------------------------/
+/---------------------------------------------------------------------------------/
+
+Variable	Description
+state: string (nullable = true)	State name
+state_code: string (nullable = true)	State code 
+native_pop: integer (nullable = false)	American Indian and Alaska Native population by state
+asian_pop: integer (nullable = false)	Asian population by state
+african_american_pop: integer (nullable = false)	Black or African-American population by state
+hispanic_pop: integer (nullable = false)	Hispanic or Latino population by state
+white_pop: integer (nullable = false)	White population by state
+median_age: float (nullable = true)	median age by state
+male_pop: integer (nullable = true)	Total male population by state
+female_pop: integer (nullable = true)	Total female population by state
+total_pop: integer (nullable = true)	Overall population by state
+number_of_veterans: integer (nullable = true)	Veteran population by state
+foreign_born: integer (nullable = true)	Count of foreign born population
+average_household_size: float (nullable = true)	Avg household no. by state
+
+
+/---------------------------------------------------------------------------------/
+/-------------------------*******Country data*******----------------------------/
+/---------------------------------------------------------------------------------/
+Variable 	Description
+country_code: string (nullable = true)	country_code
+country_name: string (nullable = true)	country_name
+
+
+
+/---------------------------------------------------------------------------------/
+/-------------------------*******Port data*******----------------------------/
+/---------------------------------------------------------------------------------/
+Variable 	Description
+port_code: string (nullable = true)	port of entry code
+place: string (nullable = true)	port of entry city & state
+
+
+/---------------------------------------------------------------------------------/
+/-------------------------*******visa_dim*******----------------------------/
+/---------------------------------------------------------------------------------/
+Variable 	Description
+visa_id: long (nullable = true)	
+visa_cat_code: integer (nullable = true)	visa_category_code
+visa_category: string (nullable = true)	visa_category
+visa_type: string (nullable = true)	visa_type
+visa_issued_state: integer (nullable = true)	place where visa was issued
+
+/---------------------------------------------------------------------------------/
+/-------------------------*******I94_mode_dim*******----------------------------/
+/---------------------------------------------------------------------------------/
+Variable 	Description
+i94_mode: integer (nullable = true)	mode of transport code
+transport_mode: string (nullable = true)	Description
+
+
+/---------------------------------------------------------------------------------/
+/-------------------------*******status_dim*******----------------------------/
+/---------------------------------------------------------------------------------/
+Variable 	Description
+status_flag_id: long (nullable = true)	unique_id
+arrival_flag: string (nullable = true)	arrival_flag (entdepa)
+departure_flag: string (nullable = true)	departure_flag entdepd 
+match_flag: string (nullable = true)	matflag
+
+/---------------------------------------------------------------------------------/
+/-------------------------*******status_lookup_dim*******----------------------------/
+/---------------------------------------------------------------------------------/
+Variable 	Description
+status_flag: string (nullable = true)	flag values
+definition: string (nullable = true)	description
+
+
+/---------------------------------------------------------------------------------/
+/-------------------------*******date_dim*******----------------------------/
+/---------------------------------------------------------------------------------/
+Variable 	Description
+dt_arrival: date (nullable = true)	date of arrival 
+arr_year: integer (nullable = true)	arrival year
+arr_month: integer (nullable = true)	arrival month
+arr_weekofyear: integer (nullable = true)	arrival week in the year
+arr_dayofweek: integer (nullable = true)	arrival day of week
+arr_dayofmonth: integer (nullable = true)	day of month of arrival
+
+/---------------------------------------------------------------------------------/
+/-------------------------*******I94_port_dim*******----------------------------/
+/---------------------------------------------------------------------------------/
+Variable 	Description
+port_code: string (nullable = true)	port of entry code
+port_city: string (nullable = true)	port of entry city
+
